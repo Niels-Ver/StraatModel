@@ -7,15 +7,9 @@ namespace StraatModel
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            //string line;
-            //using (StreamReader r = new StreamReader(path))
-            //{
-            //    while((line = r.ReadLine()) != null)
-            //    {
+            DataReader dr = new DataReader();
 
-            //    }
-            //}
+            dr.leesData();
         }
     }
 }
