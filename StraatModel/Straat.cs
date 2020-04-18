@@ -31,5 +31,16 @@ namespace StraatModel
         {
 
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Straat straat &&
+                   straatId == straat.straatId;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(straatId);
+        }
     }
 }

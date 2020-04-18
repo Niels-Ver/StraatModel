@@ -9,11 +9,11 @@ namespace StraatModel
     public class Punt
     {
         [DataMember]
-        public double x { get; set; }
+        public decimal x { get; set; }
         [DataMember] 
-        public double y { get; set; }
+        public decimal y { get; set; }
 
-        public Punt(double x, double y)
+        public Punt(decimal x, decimal y)
         {
             this.x = x;
             this.y = y;
@@ -28,12 +28,7 @@ namespace StraatModel
 
         public override int GetHashCode()
         {
-            return base.GetHashCode();
-        }
-
-        public override string ToString()
-        {
-            return base.ToString();
+            return HashCode.Combine(x, y);
         }
     }
 }

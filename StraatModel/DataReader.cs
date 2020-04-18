@@ -44,7 +44,7 @@ namespace StraatModel
                             String[] splitCoords = coordsTrim.Split(' ');
 
                             //Console.WriteLine($"x Coord = {splitCoords[0]}, y coord = {splitCoords[1]}");
-                            Punt punt = new Punt(double.Parse(splitCoords[0].Replace('.', ',')), double.Parse(splitCoords[1].Replace('.', ',')));
+                            Punt punt = new Punt(decimal.Parse(splitCoords[0].Replace('.', ',')), decimal.Parse(splitCoords[1].Replace('.', ',')));
                             vertices.Add(punt);
                         }
 
@@ -267,15 +267,15 @@ namespace StraatModel
                     sw.WriteLine("StraatInfo " + provincies[provincieId].provincieNaam);
                     foreach (Gemeente gemeente in provincies[provincieId].gemeentes)
                     {
-                        double totaleLengte = 0;
+                        decimal totaleLengte = 0;
                         Straat kortsteStraat = gemeente.straatList[0];
                         Straat langsteStraat = gemeente.straatList[0];
-                        double lengteKortsteStraat = 0;
-                        double lengteLangsteStraat = 0;
+                        decimal lengteKortsteStraat = 0;
+                        decimal lengteLangsteStraat = 0;
                         for (int i = 0; i < gemeente.straatList.Count; i++)
                         {
                             Straat straat = gemeente.straatList[i];
-                            double straatLengte = calculateLength(straat);
+                            decimal straatLengte = calculateLength(straat);
                             totaleLengte += straatLengte;
                             if (i == 0)
                             {
@@ -305,7 +305,7 @@ namespace StraatModel
                     }
                 }
             }
-            double calculateLength(Straat straat)
+            decimal calculateLength(Straat straat)
             {
                 HashSet<Segment> uniqueSegments = new HashSet<Segment>();
                 //Alle segmenten uit de graaf in 1 collectie steken
@@ -317,15 +317,15 @@ namespace StraatModel
                     uniqueSegments.Add(segment);
                 }
 
-                double totaleLengte = 0;
+                decimal totaleLengte = 0;
                 foreach (Segment segment in uniqueSegments)
                 {
                     for (int i = 0; i < segment.vertices.Count - 1; i++)
                     {
                         Punt punt1 = segment.vertices[i];
                         Punt punt2 = segment.vertices[i + 1];
-                        double lengteTussenPunten = Math.Sqrt(Math.Pow((punt1.x - punt2.x), 2) + Math.Pow((punt1.y - punt2.y), 2));
-                        totaleLengte += lengteTussenPunten;
+                       // decimal lengteTussenPunten = Math.Sqrt(Math.Pow((punt1.x - punt2.x), 2) + Math.Pow((punt1.y - punt2.y), 2));
+                       // totaleLengte += lengteTussenPunten;
                     }
                 }
                 return totaleLengte;
@@ -334,7 +334,10 @@ namespace StraatModel
 
         public void serializeData(Dictionary<int, Provincie> provincies)
         {
-            string path = @"D:\Niels\School\Prog3\XMLSerial.xml";
+            Dictionary<int, Provincie> testProvincie = new Dictionary<int, Provincie>();
+            testProvincie.Add(1, provincies[1]);
+
+            string path = @"D:\Niels\School\Prog3\testXMLSerial.xml";
             var serializer = new DataContractSerializer(provincies.GetType());
             string xmlString;
             using (var sw = new StreamWriter(path))
@@ -342,7 +345,7 @@ namespace StraatModel
                 using (var writer = new XmlTextWriter(sw))
                 {
                     writer.Formatting = Formatting.Indented; // indent the Xml so it's human readable
-                    serializer.WriteObject(writer, provincies);
+                    serializer.WriteObject(writer, testProvincie);
                     writer.Flush();
                     xmlString = sw.ToString();
                 }

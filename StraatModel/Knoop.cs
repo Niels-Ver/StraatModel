@@ -19,19 +19,22 @@ namespace StraatModel
             this.punt = punt;
         }
 
-        public override bool Equals(object obj)
-        {
-            return base.Equals(obj);
-        }
-
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
+       
 
         public override string ToString()
         {
             return base.ToString();
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Knoop knoop &&
+                   knoopID == knoop.knoopID;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(knoopID);
         }
     }
 }
