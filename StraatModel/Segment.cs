@@ -16,6 +16,8 @@ namespace StraatModel
         public int segmentId { get; set; }
         [DataMember]
         public List<Punt> vertices { get; set; }
+
+
         public Segment(int segmentId, Knoop beginKnoop, Knoop eindKnoop, List<Punt> vertices)
         {
             this.segmentId = segmentId;
@@ -27,19 +29,12 @@ namespace StraatModel
         public override bool Equals(object obj)
         {
             return obj is Segment segment &&
-                   EqualityComparer<Knoop>.Default.Equals(beginKnoop, segment.beginKnoop) &&
-                   EqualityComparer<Knoop>.Default.Equals(eindKnoop, segment.eindKnoop) &&
-                   segmentId == segment.segmentId &&
-                   EqualityComparer<List<Punt>>.Default.Equals(vertices, segment.vertices);
+                   segmentId == segment.segmentId;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(beginKnoop, eindKnoop, segmentId, vertices);
-        }
-        public override string ToString()
-        {
-            return base.ToString();
+            return HashCode.Combine(segmentId);
         }
     }
 }

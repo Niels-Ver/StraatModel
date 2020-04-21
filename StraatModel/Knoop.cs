@@ -13,6 +13,7 @@ namespace StraatModel
         [DataMember]
         public int knoopID { get; set; }
 
+
         public Knoop(int knoopID, Punt punt)
         {
             this.knoopID = knoopID;

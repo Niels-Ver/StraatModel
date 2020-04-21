@@ -13,6 +13,7 @@ namespace DatabaseSQL
     {
         Dictionary<int, Provincie> provincies = new Dictionary<int, Provincie>();
 
+
         public void ReadFile()
         {
             string path = @"D:\Niels\School\Prog3\XMLSerial.xml";

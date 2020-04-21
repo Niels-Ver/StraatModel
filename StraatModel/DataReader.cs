@@ -100,6 +100,7 @@ namespace StraatModel
             //Uitlezen van Straatnamen bij straatId en aanmaken van een dictionary van alle straten.
             Dictionary<int, String> straatNaamDictionary = new Dictionary<int, String>();
             Dictionary<int, Straat> straatDictionary = new Dictionary<int, Straat>();
+            int graafId = 1;
             using (StreamReader r = new StreamReader(@"D:\Niels\School\Prog3\WRdata\WRstraatnamen.csv"))
             {
                 r.ReadLine();  //eerste lijn staat info over bestand, dit is niet nodig
@@ -114,7 +115,6 @@ namespace StraatModel
 
                 foreach (int straatId in segmentMap.Keys)
                 {
-                    int graafId = 1;
                     straatDictionary.Add(straatId, new Straat(straatId, straatNaamDictionary[straatId], Graaf.buildGraaf(graafId, segmentMap[straatId])));
                     graafId++;
                 }
@@ -221,7 +221,7 @@ namespace StraatModel
 
 
             generateRaport(finaleDictionary);
-            serializeData(finaleDictionary);
+            //serializeData(finaleDictionary);
         }
 
         public void generateRaport(Dictionary<int, Provincie> provincies)
@@ -324,8 +324,8 @@ namespace StraatModel
                     {
                         Punt punt1 = segment.vertices[i];
                         Punt punt2 = segment.vertices[i + 1];
-                       // decimal lengteTussenPunten = Math.Sqrt(Math.Pow((punt1.x - punt2.x), 2) + Math.Pow((punt1.y - punt2.y), 2));
-                       // totaleLengte += lengteTussenPunten;
+                        double lengteTussenPunten = Math.Sqrt(Math.Pow(((double)punt1.x - (double)punt2.x), 2) + Math.Pow(((double)punt1.y - (double)punt2.y), 2));
+                        totaleLengte += (decimal)lengteTussenPunten;
                     }
                 }
                 return totaleLengte;
@@ -337,7 +337,7 @@ namespace StraatModel
             Dictionary<int, Provincie> testProvincie = new Dictionary<int, Provincie>();
             testProvincie.Add(1, provincies[1]);
 
-            string path = @"D:\Niels\School\Prog3\testXMLSerial.xml";
+            string path = @"D:\Niels\School\Prog3\XMLSerial.xml";
             var serializer = new DataContractSerializer(provincies.GetType());
             string xmlString;
             using (var sw = new StreamWriter(path))
@@ -345,7 +345,7 @@ namespace StraatModel
                 using (var writer = new XmlTextWriter(sw))
                 {
                     writer.Formatting = Formatting.Indented; // indent the Xml so it's human readable
-                    serializer.WriteObject(writer, testProvincie);
+                    serializer.WriteObject(writer, provincies);
                     writer.Flush();
                     xmlString = sw.ToString();
                 }

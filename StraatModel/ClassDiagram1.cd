@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="StraatModel.DataReader">
+    <Position X="13.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAIAAAAAAAAAAAAIAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>DataReader.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Program" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="StraatModel.Gemeente">
+    <Position X="10.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAgAIAAAAACAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Gemeente.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Provincie" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="StraatModel.Graaf">
+    <Position X="5.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAgABAAABAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Graaf.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Straat" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="StraatModel.Knoop">
+    <Position X="0.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAEgAEAAAAAAAAAAIAAAAAAAACAAAA=</HashCode>
+      <FileName>Knoop.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Segment" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="StraatModel.Program">
+    <Position X="10.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StraatModel.Provincie">
+    <Position X="13.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAgAAIAAAAAAAAAIAAAAAIAAABAAA=</HashCode>
+      <FileName>Provincie.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DataReader" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="StraatModel.Punt">
+    <Position X="1.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAEAAAAAAAAAAYAAAABgAAAAAAA=</HashCode>
+      <FileName>Punt.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Segment" />
+      <Property Name="Knoop" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="StraatModel.Segment">
+    <Position X="3.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACgAAAAAAAAAAAAAgAAAAAAAAAAQAIABAAAAAAAIAAA=</HashCode>
+      <FileName>Segment.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Graaf" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="StraatModel.Straat">
+    <Position X="8" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAhAABAAAAAAAAAIAAAAAAAQQACAA=</HashCode>
+      <FileName>Straat.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Gemeente" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

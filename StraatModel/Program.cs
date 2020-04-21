@@ -10,6 +10,8 @@ namespace StraatModel
             DataReader dr = new DataReader();
 
             dr.leesData();
+
+            
         }
     }
 }

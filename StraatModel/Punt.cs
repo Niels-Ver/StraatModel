@@ -13,6 +13,7 @@ namespace StraatModel
         [DataMember] 
         public decimal y { get; set; }
 
+
         public Punt(decimal x, decimal y)
         {
             this.x = x;
@@ -29,6 +30,11 @@ namespace StraatModel
         public override int GetHashCode()
         {
             return HashCode.Combine(x, y);
+        }
+
+        public override string ToString()
+        {
+            return $"({x},{y})";
         }
     }
 }

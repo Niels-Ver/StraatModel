@@ -15,6 +15,7 @@ namespace StraatModel
         [DataMember]
         public string straatnaam { get; set; }
 
+
         public Straat(int straatId, string straatnaam, Graaf graaf)
         {
             this.straatId = straatId;

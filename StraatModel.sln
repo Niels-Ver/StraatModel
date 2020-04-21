@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StraatModel", "StraatModel\StraatModel.csproj", "{1364F04A-99CA-4F23-B8F8-DC9BA3C7EBBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseSQL", "DatabaseSQL\DatabaseSQL.csproj", "{8F79A481-409B-415B-980B-454BF2875EFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseSQL", "DatabaseSQL\DatabaseSQL.csproj", "{8F79A481-409B-415B-980B-454BF2875EFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseBevraging", "DatabaseBevraging\DatabaseBevraging.csproj", "{5DD894F1-8A48-44CB-A75F-480C4AB58018}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{8F79A481-409B-415B-980B-454BF2875EFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F79A481-409B-415B-980B-454BF2875EFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F79A481-409B-415B-980B-454BF2875EFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DD894F1-8A48-44CB-A75F-480C4AB58018}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DD894F1-8A48-44CB-A75F-480C4AB58018}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DD894F1-8A48-44CB-A75F-480C4AB58018}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DD894F1-8A48-44CB-A75F-480C4AB58018}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
